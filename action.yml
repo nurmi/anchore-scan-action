@@ -1,13 +1,16 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'anchore-image-scan'
+description: 'Docker image scan with anchore and produce output for downstream'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  image_reference:  # id of input
+    description: 'The image to scan'
     required: true
-    default: '1000'
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  image_bill_of_materials:
+    description: 'The json output report specifying the content of the image'
+  image_vulnerabilities:
+    description: 'The found vulnerabilities for the image'
+  image_check_report:
+    descrption: 'The json report for evaluating the image against the given policy, if present'
 runs:
   using: 'node12'
   main: 'index.js'
