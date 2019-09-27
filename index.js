@@ -1,15 +1,18 @@
 const core = require('@actions/core');
 const execSync = require('child_process').execSync;
-const exec = require('@actions/exec');
+//const exec = require('@actions/exec');
 
 // most @actions toolkit packages have async methods
 async function run() {
     try {
         var output = execSync('ls', {encoding: 'utf-8'});  // the default is 'buffer'
-        console.log('Output was:\n', output);
+        console.log('ls Output was:\n', output);
 
         output = execSync('pwd', {encoding: 'utf-8'});  // the default is 'buffer'
-        console.log('Output was:\n', output);
+        console.log('Pwd Output was:\n', output);
+
+        output = execSync('env', {encoding: 'utf-8'});  // the default is 'buffer'
+        console.log('Env Output was:\n', output);
 
         core.debug((new Date()).toTimeString());
         core.addPath('.');
