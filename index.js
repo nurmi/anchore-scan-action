@@ -1,6 +1,5 @@
 const core = require('@actions/core');
 const execSync = require('child_process').execSync;
-const exec = require('@actions/exec');
 
 
 // most @actions toolkit packages have async methods
