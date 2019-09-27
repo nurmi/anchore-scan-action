@@ -24,10 +24,10 @@ async function run() {
 
         const options = {};
         options.listeners = {
-            stdout: (data: Buffer) => {
+            stdout: (data) => {
                 myOutput += data.toString();
             },
-            stderr: (data: Buffer) => {
+            stderr: (data) => {
                 myError += data.toString();
             }
         };
