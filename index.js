@@ -15,7 +15,7 @@ async function run() {
         output = execSync('env', {encoding: 'utf-8'});  // the default is 'buffer'
         console.log('Env Output was:\n', output);
 
-	output = execSync('/home/runner/work/_actions/nurmi/anchore-scan-action/master/inline_scan-v0.5.0', {encoding: 'utf-8'));
+	output = execSync('/home/runner/work/_actions/nurmi/anchore-scan-action/master/inline_scan-v0.5.0', {encoding: 'utf-8'});
 	console.log('ILS Output was:\n', output);
 	
 	
