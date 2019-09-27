@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const execSync = require('child_process').execSync;
+const exec = require('@actions/exec');
 
 // most @actions toolkit packages have async methods
 async function run() {
@@ -11,8 +12,10 @@ async function run() {
         console.log('Output was:\n', output);
 
         core.debug((new Date()).toTimeString());
+        core.addPath('.');
         var img = core.getInput('image_reference');
-        var cmd = './inline_scan-v0.5.0 ' + img;
+        var cmd = 'inline_scan-v0.5.0 ' + img;
+        //await exec.exec(cmd);
         output = execSync(cmd, {encoding: 'utf-8'});  // the default is 'buffer'
         console.log('Output was:\n', output);
 
