@@ -15,28 +15,10 @@ async function run() {
         output = execSync('env', {encoding: 'utf-8'});  // the default is 'buffer'
         console.log('Env Output was:\n', output);
 
-        core.debug((new Date()).toTimeString());
-        core.addPath('.');
-        let img = core.getInput('image_reference');
-        let cmd = 'inline_scan-v0.5.0 ' + img;
-        let myOutput = '';
-        let myError = '';
-
-        const options = {};
-        options.listeners = {
-            stdout: (data) => {
-                myOutput += data.toString();
-            },
-            stderr: (data) => {
-                myError += data.toString();
-            }
-        };
-        options.cwd = './lib';
-        await exec.exec(cmd, options);
-        //output = execSync(cmd, {encoding: 'utf-8'});  // the default is 'buffer'
-        console.log('Output was:\n', myOutput);
-        console.log('Error was:\n', myError);
-
+	output = execSync('/home/runner/work/_actions/nurmi/anchore-scan-action/master/inline_scan-v0.5.0', {encoding: 'utf-8'));
+	console.log('ILS Output was:\n', output);
+	
+	
         core.debug((new Date()).toTimeString());
 
         core.setOutput('time', new Date().toTimeString());
